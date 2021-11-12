@@ -1,0 +1,13 @@
+MPI: 
+mpicc name.c -o mpi.o (compile c file)
+mpiCC name.cpp -o mpi.o (compile cpp file)
+mpirun -np 4 ./mpi.o (run mpi)
+
+Pthread:
+compilation: g++ name.cpp -lpthread
+run command: ./a.out 2(number of thread) 10000(total operations)
+
+OpenMP:
+compilation: g++ name.cpp -fopenmp
+run command: ./a.out 2(number of thread) 
+
