@@ -12,7 +12,7 @@ int main(void)
     int comm_sz;
     int my_rank;
     puts("t-1");
-    int n = MPI_Init(NULL, NULL);
+    MPI_Init(NULL, NULL);
     puts("t-2");
     MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);

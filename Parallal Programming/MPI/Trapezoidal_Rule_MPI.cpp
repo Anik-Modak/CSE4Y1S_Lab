@@ -51,10 +51,7 @@ int main()
 
     local_n = n/comm_sz;
     local_a = a + my_rank*local_n*height;
-    if(my_rank == comm_sz-1 && n%comm_sz != 0)
-    {
-        local_n = n % comm_sz;  // while number of iteration is not divided by the process
-    }
+    
     local_b = local_a + local_n*height;
     local_area = trapizoid(local_a,local_b,local_n,height);
 
