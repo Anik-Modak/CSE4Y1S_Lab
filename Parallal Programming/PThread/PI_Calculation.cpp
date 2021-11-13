@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
     printf("Value of PI : %.5lf\n", 4.0 * sum);
-    printf("Total time: %.5lf Second\n", time_spent * 1000.0);
+    printf("Total time: %.5lf ms\n", time_spent * 1000.0);
 
     free(thread_handles);
     return 0;
