@@ -21,7 +21,7 @@ int main(void)
 
     if (my_rank != 0)
     {
-        sprintf(greeting, "Greetings from process %d of %d!",my_rank, comm_sz);
+        sprintf(greeting, "Anik Modak");
         cout<<"Sending from : "<<my_rank<<endl;
         MPI_Send(greeting, strlen(greeting)+1, MPI_CHAR, 0, 0,MPI_COMM_WORLD);
     }

@@ -45,10 +45,8 @@ int main()
     MPI_Bcast( &n, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast( &a, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
     MPI_Bcast( &b, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-
-
+    
     height = (b-a)/(double)n;
-
     local_n = n/comm_sz;
     local_a = a + my_rank*local_n*height;
     

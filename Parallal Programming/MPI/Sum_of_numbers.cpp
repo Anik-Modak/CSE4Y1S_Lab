@@ -10,6 +10,10 @@ int main(int argc, char** argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
+    double t1, t2;
+    if(rank==0)
+        t1 = MPI_Wtime();
+
     int n = 10;
     int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     int local_n = n / size;
@@ -32,8 +36,10 @@ int main(int argc, char** argv)
             global_sum += sum[i];
 
         cout<<"Total sum: "<<global_sum<<endl;
-    }
 
+        t2 = MPI_Wtime();
+        printf( "Elapsed time is %f\n", t2 - t1 );
+    }
     MPI_Finalize();
     return 0;
 }
