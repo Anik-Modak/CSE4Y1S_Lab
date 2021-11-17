@@ -8,7 +8,7 @@ int main()
     cout<<"Enter the number of random numbers to generate : ";
     cin>>n;
 
-    cout<<"Enter '1' to chose LCM, '2' to chose built-in fucntion : ";
+    cout<<"Enter '1' to chose LCM, '2' to chose built-in function : ";
     cin>>opt;
 
     if(opt==1)

@@ -9,8 +9,6 @@ int main()
     freopen("2nd-segment-out.txt","w",stdout);
 
     int n = 0, runs = 0, mr = -1;
-
-    //input from file
     while(cin>>numbers[++n]);
 
     n--;
@@ -34,12 +32,11 @@ int main()
     }
 
     double mean, variance, z;
-
-    mean = (2*n-1)/3.0;
-    variance = (16*n-29)/90.0;
+    mean = (2*n-1.0)/3.0;
+    variance = (16*n-29.0)/90.0;
     z = ((double)runs - mean)/sqrt(variance);
 
-    cout<<"\nTotal numbers : "<<n<<endl;
+    cout<<"\n\nTotal numbers : "<<n<<endl;
     cout<<"Number of runs : "<<runs<<endl;
     cout<<"Mean : "<<mean<<endl;
     cout<<"Variance : "<<variance<<endl;

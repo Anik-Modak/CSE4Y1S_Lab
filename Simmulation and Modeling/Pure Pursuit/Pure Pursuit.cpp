@@ -1,38 +1,35 @@
+//Anik_Modak
 #include<bits/stdc++.h>
 #include<graphics.h>
 #define MX 100007
 using namespace std;
 
-double  bx[MX],by[MX];
-double  fx[MX],fy[MX];
-
 int main()
 {
-    int flag=0, time, posx=0, posy=0;
     freopen("pure_pursuit.txt","r",stdin);
 
+    int time, flag = 0, posx = 0, posy = 0;
     cin>>time;
+
+    int bx[time+5], by[time+5];
     for(int i=0; i<=time; i++)
     {
         cin>>bx[i]>>by[i];
-        posx = min(posx,(int)bx[i]);
-        posy = min(posy,(int)by[i]);
+        posx = min(posx, bx[i]);
+        posy = min(posy, by[i]);
     }
 
-    double vf, distance, sin_theta, cos_theta;
-    cin>>fx[0]>>fy[0];
-    cin>>vf;
+    double vf, distance, fx[time+5], fy[time+5];
+    cin>>fx[0]>>fy[0]>>vf;
 
     for(int i=0; i<=time; i++)
     {
         distance = sqrt((bx[i]-fx[i])*(bx[i]-fx[i]) + (by[i]-fy[i])*(by[i]-fy[i]));
-        sin_theta = (by[i]-fy[i])/distance;
-        cos_theta = (bx[i]-fx[i])/distance;
-        fx[i+1] = fx[i] + vf*cos_theta;
-        fy[i+1] = fy[i] + vf*sin_theta;
+        double sin_t = (by[i]-fy[i])/distance;
+        double cos_t = (bx[i]-fx[i])/distance;
 
-        posx = min(posx,(int)fx[i]);
-        posy = min(posy,(int)fy[i]);
+        fx[i+1] = fx[i] + vf*cos_t;
+        fy[i+1] = fy[i] + vf*sin_t;
 
         if(distance<=vf && i<time)
         {
@@ -42,16 +39,15 @@ int main()
             break;
         }
     }
-
     if(!flag)
     {
         cout<<"Target Escaped!\n";
     }
 
-    int gd=DETECT,gm;
+    int gd = DETECT,gm;
     initgraph(&gd, &gm,"");
 
-    int fct = 3,inc = 5;
+    int fct = 5, inc = 5;
     int ymx = getmaxy();
     posx = abs(posx);
     posy = abs(posy);

@@ -1,48 +1,54 @@
 //Anik_Modak
 #include<bits/stdc++.h>
+#define MX 100005
 using namespace std;
 
-int numbers[100005];
+int numbers[MX];
 int main()
 {
     freopen("1st-segment-out.txt","r",stdin);
     freopen("2nd-segment-out.txt","w",stdout);
 
-    int n, n1, n2, mr, mean_middle;
-    n = n1 = n2 = 0;
+    int n, n1, n2, runs, mr;
+    n = n1 = n2 = runs = 0;
     mr = -1;
-    mean_middle = (0+(double)n-1.0)/2.0;
 
-    while(cin>>numbers[n++]);
+    int mean_val, mx = 0;
+    while(cin>>numbers[++n])
+    {
+        mx = max(mx, numbers[n]);
+    }
+    mean_val = ((double)mx + 0.0)/2.0;
 
     cout<<"Sequence of run ups and downs : ";
     for(int i=1; i<n; i++)
     {
-        if(numbers[i]>mean_middle)
+        if(numbers[i] > mean_val)
         {
             cout<<'+'<<" ";
-            if(mr!=1)
-                n1++;
+            if(mr != 1)
+                runs++;
+            n1++;
             mr = 1;
         }
         else
         {
             cout<<'-'<<" ";
-            if(mr!=0)
-                n2++;
+            if(mr != 0)
+                runs++;
+            n2++;
             mr = 0;
         }
     }
 
-    double mean, variance, z, runs = n1+n2;
+    double mean, variance, z;
     mean = 2*n1*n2/(double)n + 0.5;
     variance = 2*n1*n2*(2*n1*n2 - n)/(double)(n*n*(n-1));
     z = (runs - mean)/sqrt(variance);
 
-    cout<<"\n\n";
-    cout<<"Above from the mean : "<<n1<<endl;
+    cout<<"\n\nAbove from the mean : "<<n1<<endl;
     cout<<"Below from the mean : "<<n2<<endl;
-    cout<<"Maximum number of possible runs : "<<n1+n2<<endl;
+    cout<<"Total number of runs  : "<<runs<<endl;
     cout<<"Mean : "<<mean<<endl;
     cout<<"Variance : "<<variance<<endl;
     cout<<"Z0 : "<<z<<endl;
