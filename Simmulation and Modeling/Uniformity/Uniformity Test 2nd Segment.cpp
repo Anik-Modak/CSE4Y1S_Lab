@@ -25,7 +25,7 @@ int main()
     }
 
     puts("..............................................................................");
-    puts("|  SL  |    Range    | occur | Expected occ  |  (O-E)^2  |   (O-E)^2/E  |");
+    puts("|  SL  |    Range    | Occur      | Expected occur |  (O-E)^2  |   (O-E)^2/E  |");
     puts("..............................................................................");
 
     for(int i=1; i<=k; i++){
@@ -34,13 +34,13 @@ int main()
         double chi = (double)tmp/(double)ex;
         total += chi;
 
-        printf("|  %2d  | %4d - %4d |    %4d    |     %4d      |  %7d  | %10.2lf   |\n",i,rn,rn+d-1,occur[i],ex,tmp,chi);
+        printf("|  %2d  | %4d - %4d |    %4d    |     %4d      |  %7d   | %10.2lf   |\n",i,rn,rn+d-1,occur[i],ex,tmp,chi);
         rn += d;
     }
 
 
     puts("..............................................................................");
-    printf("|                                            Total chi-square = %10.4lf   |\n",total);
+    printf("|                                            Total chi-square = %10.4lf    |\n",total);
     puts("..............................................................................");
 
     if(total>=-1.96 && total <= 1.96)
