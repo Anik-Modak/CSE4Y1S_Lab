@@ -2,7 +2,8 @@ clc;
 close all;
 
 originalimage = imread("cameraman.jpg");
-img = imresize(originalimage, [512 512]);
+img = rgb2gray(originalimage);
+img = imresize(img, [512 512]);
 
 [row, column] = size(img);
 
